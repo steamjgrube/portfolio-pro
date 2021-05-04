@@ -26,7 +26,7 @@ body {
 
 .header {
   background: none repeat scroll 0 0 #E0E0E0;
-  background-image:url(../assets/sunset\ mountains\ clouds\ 1920x1080\ wallpaper_www.wallpaperhi.com_60.jpg);
+  background-image:url(../images/sunset\ mountains\ clouds\ 1920x1080\ wallpaper_www.wallpaperhi.com_60.jpg);
   padding:100px;
   display:block;
   text-align: center;
@@ -108,6 +108,7 @@ nav ul li a:hover {
   text-align: center;
   transition: 0.5s ease;
   cursor: pointer;
+  height: 290px;
   margin:50px;
   perspective:1000px;
 }
@@ -117,6 +118,19 @@ nav ul li a:hover {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding:1px;
+  margin: 10px;
+  bottom:100px;
+  min-height: 100%;
+  object-fit:cover;
+  overflow:hidden;
+  display:flex;
+  position:absolute;
+  justify-content: center;
+  align-items: center;
+  top:300px;
 }
 
 .card-text {
@@ -175,36 +189,35 @@ h1 {
   text-align: center;
 }
 .bigcard {
-  background-color: transparent;
+  backface-visibility: hidden;
   position: absolute;
   width:800px;
   height:650px;
-  top:1050px;
+  top:1150px;
   grid-template-columns: 300px;
   grid-template-rows: 210px 210px 80px;
   grid-template-areas: "image" "text" "stats";
   border-radius: 25px;
-  background:transparent;
   background-position: left top;
   background-repeat: repeat;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  font-family: roboto;
   text-align: center;
   transition: 1.5s ease;
+  /* transform: translate(-50%, -50%); */
   cursor: pointer;
   margin:50px;
   perspective:1000px;
 }
 .bigcard:hover {
-  transform: scale(1.15);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+  transform: rotateY(180deg);
 }
 .card-inner {
   position:relative;
+  backface-visibility: hidden;
   width:100%;
   height:100%;
   text-align: center;
-  transition:transform 0.6s;
+  transition: all 0.8s ease;
   transform-style:preserve-3d;
   box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -217,8 +230,19 @@ h1 {
   width:100%;
   height:100%;
   top:300px;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+.bc-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility:hidden;
+  color: #333;
+  text-align: center;
+  transform: rotateY(180deg);
 }
 .bc-front img {
   flex-shrink: 0;
@@ -247,4 +271,23 @@ h1 {
 .card-bc h2 {
   margin-top:0px;
   font-size:28px;
+}
+h1 {
+  font-size: 5rem;
+  text-transform: capitalize;
+}
+.bc-front h1, .bc-back h1{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+.bc-front p, .bc-back p{
+  font-family: 'zilla slab', sans-serif;
+  padding: 30px;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
 }
